@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Portfólio — Luis Gustavo Cassioli
 
-## Getting Started
+**Desenvolvedor Front-End especializado em React, Next.js e TypeScript.**
+Criando interfaces de alto desempenho que geram resultados reais.
 
-First, run the development server:
+[![Deploy](https://img.shields.io/badge/Deploy-Vercel-black?style=flat-square&logo=vercel)](https://luisgustavocassiolidev.com.br)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
+
+---
+
+## ✨ Funcionalidades
+
+- **Design Dark Premium** com glassmorphism e glow effects
+- **Animações fluidas** com Framer Motion (scroll-driven, whileInView)
+- **Scroll progress bar** e **back-to-top** integrados
+- **Formulário de contato** que abre WhatsApp com mensagem pré-formatada
+- **Download de currículo** em PT e EN via dropdown animado
+- **Seção de Experiência** em timeline vertical
+- **Números animados** nas métricas (contador de 0 até o valor)
+- **Nav link ativo** detectado por IntersectionObserver
+- **SEO completo** com Open Graph, Twitter Card e metadataBase
+- **100% responsivo** — mobile first
+
+---
+
+## 🛠️ Stack
+
+| Tecnologia | Uso |
+| --- | --- |
+| **Next.js 16** (App Router) | Framework principal, SSG, roteamento |
+| **TypeScript 5** | Tipagem estrita em todo o projeto |
+| **Tailwind CSS v4** | Estilização utilitária com CSS-first config |
+| **Framer Motion** | Animações e transições |
+| **Lucide React** | Ícones |
+| **React Hot Toast** | Notificações toast |
+
+---
+
+## 📦 Instalação e uso local
 
 ```bash
+# Clone o repositório
+git clone https://github.com/LuisGustavoCassioli/portfolio.git
+cd portfolio
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse **<http://localhost:3000>**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚢 Deploy
 
-## Learn More
+O projeto está configurado para deploy automatizado na **Vercel**.
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build   # Build de produção
+npm run start   # Servidor de produção local
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Após o deploy, atualize a `metadataBase` em `src/app/layout.tsx` com a URL definitiva.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📁 Estrutura do projeto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```text
+src/
+├── app/
+│   ├── layout.tsx       # Layout raiz + SEO metadata
+│   ├── page.tsx         # Página principal
+│   └── globals.css      # Tokens de design (cores, fontes)
+├── components/
+│   ├── Header.tsx       # Navegação com active section
+│   ├── Hero.tsx         # Seção principal + dropdown CV
+│   ├── About.tsx        # Bio + métricas animadas
+│   ├── TechStack.tsx    # Stack tecnológica com níveis
+│   ├── Services.tsx     # Serviços oferecidos
+│   ├── Experience.tsx   # Timeline de experiência
+│   ├── Projects.tsx     # Cards de projetos com preview
+│   ├── Contact.tsx      # Formulário WhatsApp
+│   ├── Footer.tsx       # Rodapé com links sociais
+│   ├── ScrollProgress.tsx
+│   ├── BackToTop.tsx
+│   └── Providers.tsx    # Client wrapper (Toast)
+└── lib/
+    ├── utils.ts         # cn() helper
+    └── useCountUp.ts    # Hook de contador animado
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+Feito com 💙 por **Luis Gustavo Cassioli**
+[LinkedIn](https://www.linkedin.com/in/luis-gustavo-cassioli-rodrigues) · [GitHub](https://github.com/LuisGustavoCassioli) · [Site](https://luisgustavocassiolidev.com.br)
