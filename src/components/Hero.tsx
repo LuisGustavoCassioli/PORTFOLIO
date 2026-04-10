@@ -1,157 +1,98 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { Download, ChevronDown } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
-
-const cvFiles = [
-    { label: "🇧🇷 Português", href: "/Currículo Portuguese.pdf" },
-    { label: "🇺🇸 English", href: "/Currículo English.pdf" },
-];
-
-const CvDropdown = () => {
-    const [open, setOpen] = useState(false);
-    const ref = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const handler = (e: MouseEvent) => {
-            if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-        };
-        document.addEventListener("mousedown", handler);
-        return () => document.removeEventListener("mousedown", handler);
-    }, []);
-
-    return (
-        <div ref={ref} className="relative">
-            <button
-                onClick={() => setOpen((v) => !v)}
-                className="flex h-12 items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-6 font-medium text-accent transition-all hover:bg-accent/20 focus:outline-none"
-            >
-                <Download size={17} />
-                Currículo
-                <ChevronDown size={15} className={`transition-transform ${open ? "rotate-180" : ""}`} />
-            </button>
-
-            <AnimatePresence>
-                {open && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -8, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -8, scale: 0.95 }}
-                        transition={{ duration: 0.15 }}
-                        className="absolute left-0 top-full mt-2 w-48 overflow-hidden rounded-2xl border border-white/10 bg-[#111] shadow-xl backdrop-blur-md"
-                    >
-                        {cvFiles.map((file) => (
-                            <a
-                                key={file.label}
-                                href={file.href}
-                                download
-                                onClick={() => setOpen(false)}
-                                className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-secondary transition-colors hover:bg-white/5 hover:text-white"
-                            >
-                                {file.label}
-                            </a>
-                        ))}
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
-    );
-};
+import { motion } from "framer-motion";
+import { ArrowRight, Github } from "lucide-react";
+import { CvDropdown } from "@/components/CvDropdown";
 
 export const Hero = () => {
     return (
-        <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pt-20">
-            {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[120px]" />
+        <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden px-4 pt-32 pb-20">
+            {/* Editorial Foundations */}
+            <div className="absolute inset-0 grid-pattern pointer-events-none opacity-40" />
+            <div className="absolute inset-0 bg-noise pointer-events-none" />
 
-            <div className="container mx-auto text-center">
-                {/* Availability Badge */}
-                <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium backdrop-blur-sm"
-                >
-                    <span className="relative flex h-2 w-2">
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-                        <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-                    </span>
-                    <span className="text-secondary">Disponível para novos projetos</span>
-                </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-                >
-                    <h2 className="mb-4 font-mono text-sm font-medium tracking-widest text-accent uppercase">
-                        Luis Gustavo Cassioli
-                    </h2>
-                    <h1 className="mx-auto max-w-4xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl">
-                        Criando interfaces de{" "}
-                        <span className="text-accent text-glow">alto desempenho</span> que
-                        geram resultados
-                    </h1>
-                </motion.div>
-
-                <motion.p
-                    className="mx-auto mt-8 max-w-2xl text-lg text-secondary sm:text-xl"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
-                >
-                    Especialista em Front-End | React | Next.js | Focado em UI/UX de excelência
-                </motion.p>
-
-                <motion.div
-                    className="mt-12 flex flex-wrap justify-center gap-4"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                >
-                    <a
-                        href="#projetos"
-                        className="flex h-12 items-center justify-center rounded-full bg-accent px-8 font-medium text-background transition-all hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+            <div className="container mx-auto relative z-10">
+                <div className="flex flex-col items-center text-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="mb-8 flex flex-col items-center gap-2"
                     >
-                        Ver Projetos
-                    </a>
-                    <a
-                        href="#contato"
-                        className="flex h-12 items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 font-medium transition-all hover:bg-white/10 hover:border-white/40 focus:outline-none"
+                        <span className="text-white font-black uppercase tracking-[0.2em] text-2xl">
+                            Luis Gustavo
+                        </span>
+                        <div className="flex items-center gap-4">
+                            <div className="h-px w-8 bg-accent" />
+                            <span className="text-[10px] uppercase tracking-[0.6em] font-black text-white/40">
+                                Software Engineer
+                            </span>
+                            <div className="h-px w-8 bg-accent" />
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.98 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                        className="max-w-[1200px]"
                     >
-                        Entrar em Contato
-                    </a>
-                    {/* CV Dropdown */}
-                    <div className="relative">
-                        <CvDropdown />
-                    </div>
-                    <a
-                        href="https://github.com/LuisGustavoCassioli"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex h-12 items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 font-medium transition-all hover:bg-white/10 hover:border-white/40 focus:outline-none"
+                        <h1 className="text-huge text-white uppercase select-none">
+                            Produto em <span className="text-accent italic">primeiro</span> lugar.
+                        </h1>
+                    </motion.div>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="mt-8 max-w-2xl text-xl text-secondary/60 font-bold leading-tight uppercase tracking-tight"
                     >
-                        GitHub ↗
-                    </a>
-                </motion.div>
+                        Foco em performance, design de autor e <span className="text-white">experiência real.</span>
+                        <br />
+                        O código é o meio. O lucro é o fim.
+                    </motion.p>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                        className="mt-12 lg:mt-20 flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-sm sm:max-w-none px-4"
+                    >
+                        <a
+                            href="#projetos"
+                            className="group flex h-20 sm:h-16 w-full sm:w-auto items-center justify-center gap-6 bg-accent px-10 text-white font-black uppercase tracking-widest transition-all hover:bg-white hover:text-black active:scale-95 border-brutal"
+                        >
+                            Cases de Sucesso
+                            <ArrowRight size={20} className="transition-transform group-hover:translate-x-2" />
+                        </a>
+
+                        <div className="flex items-center gap-4 w-full sm:w-auto justify-center">
+                            <CvDropdown />
+                            <a
+                                href="https://github.com/LuisGustavoCassioli"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="h-16 w-16 flex items-center justify-center border border-white/10 bg-white/[0.02] text-white hover:bg-white hover:text-black transition-all group active:scale-95"
+                            >
+                                <Github size={24} />
+                            </a>
+                        </div>
+                    </motion.div>
+                </div>
             </div>
 
-            {/* Scroll indicator */}
-            <motion.div
-                className="absolute bottom-6 left-1/2 -translate-x-1/2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1, duration: 1 }}
-            >
-                <div className="flex h-10 w-6 justify-center rounded-full border-2 border-white/20 p-1">
-                    <motion.div
-                        className="h-2 w-1 rounded-full bg-accent"
-                        animate={{ y: [0, 16, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                    />
-                </div>
-            </motion.div>
+            {/* Coordinate markers - Editorial style */}
+            <div className="absolute bottom-10 left-10 hidden lg:block">
+                <span className="text-[10px] font-mono text-white/20 uppercase tracking-[0.3em]">
+                    LAT: -23.5505 / LONG: -46.6333
+                </span>
+            </div>
+            <div className="absolute top-1/2 -right-20 -rotate-90 hidden lg:block">
+                <span className="text-[10px] font-mono text-white/10 uppercase tracking-[1em]">
+                    C O D E . D E S I G N . S T R A T E G Y
+                </span>
+            </div>
         </section>
     );
 };

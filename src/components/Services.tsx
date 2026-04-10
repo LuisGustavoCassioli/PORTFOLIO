@@ -1,87 +1,60 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-    Monitor,
-    Globe,
-    Layout
-} from "lucide-react";
-
-interface ServiceCardProps {
-    icon: React.ElementType;
-    title: string;
-    description: string;
-    index: number;
-}
-
-const ServiceCard = ({ icon: Icon, title, description, index }: ServiceCardProps) => {
-    return (
-        <motion.div
-            initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="group relative h-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 transition-all hover:bg-white/[0.08]"
-        >
-            <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/20 text-accent transition-all group-hover:scale-110">
-                <Icon size={32} />
-            </div>
-            <h3 className="mb-4 text-2xl font-bold">{title}</h3>
-            <p className="text-secondary leading-relaxed">{description}</p>
-
-            {/* Decorative arrow */}
-            <div className="mt-8 flex items-center gap-2 text-sm font-medium text-accent opacity-0 transition-all group-hover:opacity-100">
-                Saber mais
-                <motion.span
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                    →
-                </motion.span>
-            </div>
-        </motion.div>
-    );
-};
-
-const services = [
-    {
-        icon: Globe,
-        title: "Landing Pages personalizadas",
-        description: "Criação de páginas de conversão de alta performance com design focado em resultados e experiência do usuário otimizada.",
-    },
-    {
-        icon: Monitor,
-        title: "Websites profissionais",
-        description: "Desenvolvimento de sites corporativos e portfólios institucionais modernos, rápidos e totalmente responsivos.",
-    },
-    {
-        icon: Layout,
-        title: "Sistemas modernos de UI/UX",
-        description: "Design e desenvolvimento de dashboards e sistemas complexos com foco em usabilidade e interfaces de última geração.",
-    },
-];
 
 export const Services = () => {
+    const deliverables = [
+        { id: "01", title: "IDENTIDADE DIGITAL", desc: "PRESENÇA QUE POSICIONA E VENDE. DE LANDING PAGES A BRANDING VISUAL." },
+        { id: "02", title: "SISTEMAS BRUTOS", desc: "ARQUITETURAS QUE NÃO ACEITAM FALHA. DASHBOARDS E FERRAMENTAS INTERNAS." },
+        { id: "03", title: "ENGENHARIA DE PRODUTO", desc: "CÓDIGO ALINHADO AO VALOR DE NEGÓCIO. PENSADO DO ZERO À ESCALA." },
+        { id: "04", title: "OTIMIZAÇÃO RADICAL", desc: "SEO E WEB VITALS NO LIMITE. VELOCIDADE QUE CONVERTE USUÁRIOS." },
+    ];
+
     return (
-        <section id="servicos" className="bg-white/[0.02] py-24 px-4">
-            <div className="container mx-auto">
-                <div className="flex flex-col items-start justify-between gap-6 mb-16 lg:flex-row lg:items-end">
-                    <div className="max-w-2xl">
-                        <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
-                            Como posso <span className="text-accent underline decoration-accent/30 underline-offset-8">ajudar seu negócio</span>
-                        </h2>
-                        <p className="mt-4 text-secondary text-lg">
-                            Soluções sob medida para elevar sua presença digital com tecnologia de ponta e design impecável.
-                        </p>
+        <section id="servicos" className="py-40 px-4 relative bg-[#070707] overflow-hidden">
+            <div className="container mx-auto max-w-7xl">
+                <div className="flex flex-col gap-24">
+                    <div className="flex flex-col lg:flex-row justify-between items-start gap-12 border-b border-white/5 pb-16">
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                        >
+                            <span className="text-label mb-6">03 . Soluti0ns</span>
+                            <h2 className="text-huge text-white uppercase italic leading-[0.8]">
+                                O que eu <span className="text-accent not-italic">resolvo.</span>
+                            </h2>
+                        </motion.div>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-white/5 border border-white/5">
+                        {deliverables.map((item, i) => (
+                            <motion.div
+                                key={item.id}
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="group p-12 lg:p-20 bg-background hover:bg-white/[0.01] transition-all relative overflow-hidden"
+                            >
+                                <span className="font-mono text-xs text-accent/40 block mb-8">{item.id} {"//"}</span>
+                                <h3 className="text-3xl sm:text-5xl font-black text-white group-hover:text-accent transition-colors leading-[0.9] uppercase tracking-tighter">
+                                    {item.title}
+                                </h3>
+                                <p className="mt-8 text-secondary/40 text-[10px] font-black uppercase tracking-[0.3em]">
+                                    {item.desc}
+                                </p>
+
+                                {/* Decorator */}
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
-
-                <div className="grid gap-8 md:grid-cols-3">
-                    {services.map((service, index) => (
-                        <ServiceCard key={service.title} {...service} index={index} />
-                    ))}
-                </div>
             </div>
+
+            {/* Perspective Line */}
+            <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none" />
         </section>
     );
 };

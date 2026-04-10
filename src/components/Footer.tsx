@@ -1,58 +1,37 @@
-import { Github, Linkedin, Globe } from "lucide-react";
+"use client";
+
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export const Footer = () => {
     return (
-        <footer className="border-t border-white/10 py-12 px-4">
-            <div className="container mx-auto">
-                <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-                    <div>
-                        <a href="#" className="flex items-center gap-2 font-mono text-xl font-bold tracking-tighter">
-                            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-background">
+        <footer className="py-20 px-4 border-t border-white/5">
+            <div className="container mx-auto max-w-6xl">
+                <div className="flex flex-col items-center justify-between gap-12 md:flex-row">
+                    <div className="text-center md:text-left">
+                        <a href="#" className="flex items-center justify-center md:justify-start gap-3 group mb-4">
+                            <div className="h-8 w-8 flex items-center justify-center rounded-lg bg-accent text-white font-black text-lg shadow-[0_0_10px_rgba(255,40,0,0.3)]">
                                 L
+                            </div>
+                            <span className="font-black text-white uppercase tracking-tighter text-lg">
+                                Cassioli<span className="text-accent italic">.</span>
                             </span>
-                            <span>Cassioli.</span>
                         </a>
-                        <p className="mt-4 text-sm text-secondary max-w-xs">
-                            Criando experiências digitais de alto impacto com foco em performance e design excepcional.
+                        <p className="text-secondary/40 text-[10px] uppercase font-bold tracking-[0.2em]">
+                            Built with pride & passion <span className="text-accent">© {new Date().getFullYear()}</span>
                         </p>
                     </div>
 
-                    <div className="flex gap-6">
-                        <a
-                            href="https://github.com/LuisGustavoCassioli"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            title="GitHub"
-                            className="text-secondary transition-colors hover:text-accent"
-                        >
-                            <Github size={20} />
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/luis-gustavo-cassioli-rodrigues"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            title="LinkedIn"
-                            className="text-secondary transition-colors hover:text-accent"
-                        >
-                            <Linkedin size={20} />
-                        </a>
-                        <a
-                            href="https://luisgustavocassiolidev.com.br"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            title="Site"
-                            className="text-secondary transition-colors hover:text-accent"
-                        >
-                            <Globe size={20} />
-                        </a>
-                    </div>
-                </div>
-
-                <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-sm text-secondary/40 md:flex-row">
-                    <p>© {new Date().getFullYear()} Luis Gustavo Cassioli. Todos os direitos reservados.</p>
-                    <div className="flex gap-8">
-                        <a href="#" className="hover:text-accent transition-colors">Privacidade</a>
-                        <a href="#" className="hover:text-accent transition-colors">Termos</a>
+                    <div className="flex gap-4">
+                        {[
+                            { icon: Github, href: "https://github.com/LuisGustavoCassioli", label: "Github" },
+                            { icon: Linkedin, href: "https://www.linkedin.com/in/luis-gustavo-cassioli-rodrigues", label: "LinkedIn" },
+                            { icon: Mail, href: "mailto:contato@luisgustavocassioli.com.br", label: "Email" },
+                        ].map((social) => (
+                            <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer"
+                                className="h-12 w-12 flex items-center justify-center rounded-xl border border-white/5 bg-white/[0.01] text-secondary hover:border-accent/30 hover:text-accent transition-all">
+                                <social.icon size={20} />
+                            </a>
+                        ))}
                     </div>
                 </div>
             </div>

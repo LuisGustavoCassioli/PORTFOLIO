@@ -15,16 +15,16 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://luisgustavocassiolidev.com.br"),
-  title: "Luis Gustavo Cassioli | Desenvolvedor Front-End — React & Next.js",
+  title: "Luis Gustavo Cassioli | Desenvolvedor de Software — Visão de Produto & UI",
   description:
-    "Portfólio de Luis Gustavo Cassioli, desenvolvedor Front-End especializado em React, Next.js e TypeScript. Criando interfaces de alto desempenho que geram resultados reais.",
+    "Engenheiro de software focado em performance, design de autor e produtos digitais de alto impacto. Especialista em ecossistemas React.",
   keywords: [
     "Luis Gustavo Cassioli",
-    "Desenvolvedor Front-End",
+    "Desenvolvedor de Software",
+    "Engenharia de Software",
     "React",
     "Next.js",
     "TypeScript",
-    "Tailwind CSS",
     "UI/UX",
     "Portfolio",
   ],
@@ -33,24 +33,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     url: "https://luisgustavocassiolidev.com.br",
-    siteName: "Luis Gustavo Cassioli | Dev Front-End",
-    title: "Luis Gustavo Cassioli | Desenvolvedor Front-End — React & Next.js",
+    siteName: "Luis Gustavo Cassioli | Software Engineer",
+    title: "Luis Gustavo Cassioli | Desenvolvedor de Software — React & Next.js",
     description:
-      "Criando interfaces de alto desempenho que geram resultados. Especialista em React, Next.js e TypeScript.",
+      "Construindo aplicações robustas com foco em valor de negócio e rigor técnico.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Luis Gustavo Cassioli — Desenvolvedor Front-End",
+        alt: "Luis Gustavo Cassioli — Desenvolvedor de Software",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Luis Gustavo Cassioli | Desenvolvedor Front-End",
+    title: "Luis Gustavo Cassioli | Desenvolvedor de Software",
     description:
-      "Criando interfaces de alto desempenho que geram resultados. Especialista em React, Next.js e TypeScript.",
+      "Construindo aplicações robustas com foco em valor de negócio e rigor técnico.",
     images: ["/og-image.jpg"],
   },
 };

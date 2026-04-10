@@ -1,90 +1,97 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Rocket, Star } from "lucide-react";
-import { useCountUp } from "@/lib/useCountUp";
-
-const stats = [
-    { icon: Code2, label: "Anos de experiência", target: 4, suffix: "+" },
-    { icon: Rocket, label: "Projetos entregues", target: 15, suffix: "+" },
-    { icon: Star, label: "Clientes satisfeitos", target: 10, suffix: "+" },
-];
-
-const StatCard = ({ icon: Icon, label, target, suffix, index }: typeof stats[0] & { index: number }) => {
-    const { count, ref } = useCountUp(target);
-    return (
-        <motion.div
-            ref={ref as React.RefObject<HTMLDivElement>}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-            className="group flex items-center gap-6 rounded-3xl border border-white/10 bg-white/5 p-6 transition-all hover:border-accent/40 hover:bg-white/[0.08]"
-        >
-            <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-accent/10 text-accent transition-all group-hover:bg-accent group-hover:text-background">
-                <Icon size={28} />
-            </div>
-            <div>
-                <p className="text-4xl font-bold text-white tracking-tight tabular-nums">
-                    {count}{suffix}
-                </p>
-                <p className="mt-1 text-sm text-secondary">{label}</p>
-            </div>
-        </motion.div>
-    );
-};
 
 export const About = () => {
     return (
-        <section id="sobre" className="py-24 px-4">
-            <div className="container mx-auto max-w-6xl">
-                <div className="grid gap-16 lg:grid-cols-2 items-center">
-                    {/* Left: Text */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7, ease: "easeOut" }}
-                    >
-                        <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
-                            Sobre <span className="text-accent underline decoration-accent/30 underline-offset-8">mim</span>
-                        </h2>
-                        <p className="mt-6 text-secondary text-lg leading-relaxed">
-                            Sou um desenvolvedor Front-End apaixonado por criar interfaces que unem{" "}
-                            <span className="text-white font-medium">design excepcional</span> e{" "}
-                            <span className="text-white font-medium">performance de ponta</span>.
-                        </p>
-                        <p className="mt-4 text-secondary leading-relaxed">
-                            Trabalho com React, Next.js e TypeScript para construir aplicações web modernas,
-                            escaláveis e acessíveis. Meu foco está em cada detalhe — da arquitetura do código
-                            à micro-animação que encanta o usuário.
-                        </p>
+        <section id="sobre" className="py-40 px-4 relative overflow-hidden bg-background">
+            <div className="container mx-auto max-w-7xl">
+                <div className="flex flex-col gap-24">
+                    {/* Editorial Header */}
+                    <div className="flex flex-col lg:flex-row justify-between items-start gap-12 border-b border-white/5 pb-16">
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="max-w-2xl"
+                        >
+                            <span className="text-label mb-6">01 . Manifest0</span>
+                            <h2 className="text-huge text-white uppercase italic leading-[0.8]">
+                                O código é o meio. <span className="text-accent not-italic">O produto</span> é o fim.
+                            </h2>
+                        </motion.div>
 
-                        <div className="mt-10 flex flex-wrap gap-3">
-                            {["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Node.js"].map((skill) => (
-                                <span
-                                    key={skill}
-                                    className="rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent"
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="lg:pt-12"
+                        >
+                            <div className="flex items-baseline gap-2 sm:gap-4 overflow-hidden">
+                                <span className="text-4xl sm:text-6xl font-black text-white italic">2021/</span>
+                                <span className="text-lg sm:text-xl font-bold text-secondary uppercase tracking-widest italic whitespace-nowrap">Today</span>
+                            </div>
+                            <p className="text-[10px] uppercase font-black tracking-[0.2em] sm:tracking-[0.4em] text-accent mt-2">
+                                Obcecado pela execução impecável
+                            </p>
+                        </motion.div>
+                    </div>
+
+                    {/* Content Body */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                        <div className="lg:col-span-7 space-y-12">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className="space-y-8 text-xl md:text-2xl text-secondary font-light leading-relaxed uppercase tracking-tighter"
+                            >
+                                <p>
+                                    Não me interesso por código que apenas <span className="text-white font-black italic">&quot;roda&quot;</span>. Me interesso por sistemas que <span className="text-white font-black italic">resolvem</span>, interfaces que posicionam e arquiteturas que não quebram.
+                                </p>
+                                <p>
+                                    Sou desenvolvedor de software focado em <span className="text-white font-black">rigor técnico</span> e valor real. Se o seu projeto precisa de mais um dev de template, você está no lugar errado. Se precisa de autoridade digital, <span className="text-white font-black italic">estamos alinhados</span>.
+                                </p>
+                            </motion.div>
+                        </div>
+
+                        <div className="lg:col-span-5 flex flex-col gap-10">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                className="bg-accent p-8 mb-4 border-brutal"
+                            >
+                                <p className="text-black font-black uppercase text-sm leading-tight tracking-wider">
+                                    Luis Gustavo — Desenvolvedor de Software focado em performance, design e produto.
+                                </p>
+                            </motion.div>
+
+                            {[
+                                { label: "FILOSOFIA", value: "Menos é mais, se o menos for perfeito." },
+                                { label: "MÉTRICA", value: "Core Web Vitals não é opção, é obrigação." },
+                                { label: "ESTÉTICA", value: "High-contrast, high-impact, high-performance." },
+                            ].map((item, i) => (
+                                <motion.div
+                                    key={item.label}
+                                    initial={{ opacity: 0, x: 20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1 }}
+                                    className="border-l-2 border-accent pl-8 py-2"
                                 >
-                                    {skill}
-                                </span>
+                                    <span className="text-label mb-2">{item.label}</span>
+                                    <p className="text-white font-black uppercase tracking-tight text-xl">{item.value}</p>
+                                </motion.div>
                             ))}
                         </div>
-                    </motion.div>
-
-                    {/* Right: Animated Stats */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-                        className="grid gap-6"
-                    >
-                        {stats.map((stat, index) => (
-                            <StatCard key={stat.label} {...stat} index={index} />
-                        ))}
-                    </motion.div>
+                    </div>
                 </div>
+            </div>
+
+            {/* Background elements */}
+            <div className="absolute top-0 right-0 p-10 opacity-5 hidden lg:block">
+                <span className="text-[200px] font-black text-white leading-none">01</span>
             </div>
         </section>
     );
