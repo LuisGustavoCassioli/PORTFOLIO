@@ -15,14 +15,14 @@ const experiences: ExperienceItem[] = [
     {
         role: "Desenvolvedor Front-End Freelancer",
         company: "Autônomo",
-        period: "2023 — Presente",
+        period: "2021 — Presente",
         description: "Desenvolvimento de sites e sistemas web para clientes de diversos segmentos. Entrega de projetos completos com foco em performance, SEO e UI/UX de alta qualidade.",
         tags: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
     },
     {
         role: "Atendimento ao Público e Vendas",
         company: "Negócio Familiar",
-        period: "2025 — 2026",
+        period: "2019 — 2021",
         description: "Atuação direta no atendimento ao cliente e gestão de vendas, desenvolvendo habilidades sólidas de comunicação, negociação e resolução de problemas — competências que complementam minha atuação técnica no desenvolvimento de produtos centrados no usuário.",
         tags: ["Atendimento ao Cliente", "Vendas", "Comunicação", "Gestão"],
     },

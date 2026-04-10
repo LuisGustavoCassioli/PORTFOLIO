@@ -5,7 +5,7 @@ import { Code2, Rocket, Star } from "lucide-react";
 import { useCountUp } from "@/lib/useCountUp";
 
 const stats = [
-    { icon: Code2, label: "Anos de experiência", target: 2, suffix: "+" },
+    { icon: Code2, label: "Anos de experiência", target: 4, suffix: "+" },
     { icon: Rocket, label: "Projetos entregues", target: 15, suffix: "+" },
     { icon: Star, label: "Clientes satisfeitos", target: 10, suffix: "+" },
 ];
